@@ -6,7 +6,7 @@ public class SwordHitbox : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.tag == "Enemy")
         {
             Destroy(other.gameObject);
         }

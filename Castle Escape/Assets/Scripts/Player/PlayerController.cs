@@ -29,11 +29,11 @@ public class PlayerController : MonoBehaviour
 
         if (rig.velocity.x < 0f)
         {
-            sr.flipX = true;
+            transform.localScale = new Vector3 (-1f, 1f, 1f);
         }
         else if (rig.velocity.x > 0f)
         {
-            sr.flipX = false;
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
 
