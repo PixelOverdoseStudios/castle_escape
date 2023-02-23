@@ -9,11 +9,14 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private CapsuleCollider2D capCol;
     [SerializeField] private LayerMask playerLayer;
     private float cooldownTimer = Mathf.Infinity;
+    private Rigidbody2D rb;
 
     private Animator animator;
+    [SerializeField] private EnemyPatrol enemyPatrol;
 
     void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -29,6 +32,11 @@ public class MeleeEnemy : MonoBehaviour
                 cooldownTimer = 0;
                 animator.SetTrigger("meleeAttack");
             }
+        }
+
+        if(enemyPatrol != null)
+        {
+            enemyPatrol.enabled = !PlayerInSight();
         }
     }
 
@@ -46,5 +54,16 @@ public class MeleeEnemy : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(capCol.bounds.center + transform.right * range * transform.localScale.x * colliderDistance, 
             new Vector3(capCol.bounds.size.x * range, capCol.bounds.size.y, capCol.bounds.size.z));
+    }
+
+    public void EnemyDead()
+    {
+        animator.SetTrigger("die");
+        GetComponent<MeleeEnemy>().enabled = false;
+        GetComponentInChildren<EnemyPatrol>().enabled = false;
+        capCol.enabled = false;
+        rb.gravityScale = 0;
+
+        Destroy(gameObject, 2f);
     }
 }

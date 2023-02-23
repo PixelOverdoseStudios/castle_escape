@@ -8,7 +8,7 @@ public class SwordHitbox : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<MeleeEnemy>().EnemyDead();
         }
     }
 }
