@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private RaycastHit2D groundCast;
     private CapsuleCollider2D capCol2D;
     private float nextFireTime = 0;
+    private AudioPlayer audioPlayer;
 
     void Awake()
     {
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
         capCol2D = GetComponent<CapsuleCollider2D>();
         sr = GetComponentInChildren<SpriteRenderer>();
         animHandler = GetComponent<AnimationHandler>();
+        audioPlayer = FindObjectOfType<AudioPlayer>();
     }
 
     void FixedUpdate()
@@ -79,6 +81,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 animHandler.SwingSword();
+                audioPlayer.PlayerSwingSword();
                 nextFireTime = Time.time + attackTimer;
             }
         }

@@ -10,6 +10,7 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     private float cooldownTimer = Mathf.Infinity;
     private Rigidbody2D rb;
+    private AudioPlayer audioPlayer;
 
     private Animator animator;
     [SerializeField] private EnemyPatrol enemyPatrol;
@@ -18,6 +19,7 @@ public class MeleeEnemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        audioPlayer = FindObjectOfType<AudioPlayer>();
     }
 
     void Update()
@@ -30,6 +32,7 @@ public class MeleeEnemy : MonoBehaviour
             if (cooldownTimer >= attackCooldown)
             {
                 cooldownTimer = 0;
+                audioPlayer.EnemySwingSword();
                 animator.SetTrigger("meleeAttack");
             }
         }
@@ -59,6 +62,7 @@ public class MeleeEnemy : MonoBehaviour
     public void EnemyDead()
     {
         animator.SetTrigger("die");
+        audioPlayer.EnemyDeathClip();
         GetComponent<MeleeEnemy>().enabled = false;
         GetComponentInChildren<EnemyPatrol>().enabled = false;
         capCol.enabled = false;

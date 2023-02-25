@@ -13,12 +13,16 @@ public class Health : MonoBehaviour
     private CapsuleCollider2D playerCapCol2D;
     private Rigidbody2D rb;
     private AnimationHandler animHandler;
+    private AudioPlayer audioPlayer;
+
+    private bool playerDead = false;
 
     void Awake()
     {
         playerCapCol2D = GetComponent<CapsuleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         animHandler = GetComponent<AnimationHandler>();
+        audioPlayer = FindObjectOfType<AudioPlayer>();
     }
 
     void Start()
@@ -32,6 +36,13 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             animHandler.PlayerDeath();
+
+            if (playerDead == false)
+            {
+                audioPlayer.PlayerDeathClip();
+                playerDead = true;
+            }
+            
             GetComponent<PlayerController>().enabled = false;
             playerCapCol2D.enabled = false;
             rb.gravityScale = 0;

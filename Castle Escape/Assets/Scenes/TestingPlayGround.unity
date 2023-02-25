@@ -396,7 +396,7 @@ PrefabInstance:
       objectReference: {fileID: 140174988}
     - target: {fileID: 8668522281920961427, guid: 60164e71150911a489814299093e2545, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8668522281920961427, guid: 60164e71150911a489814299093e2545, type: 3}
       propertyPath: m_LocalScale.x
@@ -452,6 +452,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60164e71150911a489814299093e2545, type: 3}
+--- !u!1 &1514334569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1514334571}
+  - component: {fileID: 1514334570}
+  m_Layer: 0
+  m_Name: AudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1514334570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514334569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a33e9b3f0664f443b4809fd5b710ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSwingSwordClip: {fileID: 8300000, guid: aaedd8a8f03e6e24b91d8fb7bb82d3d3, type: 3}
+  playerDeathClip: {fileID: 8300000, guid: 7ccdd7bd17957c04989abc38238072cf, type: 3}
+  enemySwingSwordClip: {fileID: 8300000, guid: 8a8e3f756b266ae4698c1cb97f08e564, type: 3}
+  enemyDeathClip: {fileID: 8300000, guid: c53e7551ec28c884d819540a52556b63, type: 3}
+--- !u!4 &1514334571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514334569}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1720165259
 GameObject:
   m_ObjectHideFlags: 0
@@ -3916,7 +3963,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 676423704320895416, guid: 5c6b6cbe862938c438050097abda7eae, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 676423704320895416, guid: 5c6b6cbe862938c438050097abda7eae, type: 3}
       propertyPath: m_LocalPosition.x
