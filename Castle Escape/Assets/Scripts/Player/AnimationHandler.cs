@@ -25,4 +25,9 @@ public class AnimationHandler : MonoBehaviour
     {
         animator.SetTrigger("attack");
     }
+
+    public void PlayerDeath()
+    {
+        animator.SetTrigger("die");
+    }
 }
